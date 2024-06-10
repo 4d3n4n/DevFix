@@ -36,10 +36,9 @@ une capture d'écran de la gestion des erreurs et de la sécurité pendant l'ins
 
 ## 📘 Rapport et présentation
 
-[rapport_de_stage_Adenan_KHACHNANE.pdf](https://github.com/user-attachments/files/15779841/rapport_de_stage_Adenan_KHACHNANE.pdf)
+<a href="Rapport" target="_blank">Rapport</a>
 
-[Blue and orange Artificial Intelligence minimalist presentation.pdf](https://github.com/user-attachments/files/15779842/Blue.and.orange.Artificial.Intelligence.minimalist.presentation.pdf)
-
+<a href="Présentation" target="_blank">Présentation</a>
 
 <br>
 
