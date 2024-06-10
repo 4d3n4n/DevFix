@@ -1,0 +1,65 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('admin/css/team.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+<main class="main">
+    <section class="section_hero">
+        <h1 class="titleTeam">Team</h1>
+        <div class="containerAddTeam">
+            <form class="form-container" action="{{ path('ajouter_team') }}" method="POST">
+                <div class="inputContainer">
+                    <div class="containerLabelInput">
+                        <div class="alignContent">
+                            <div class="labelInput"><label>Prénom</label></div>
+                            <input type="text" class="input" name="prenom" required>
+                        </div>
+                        <div class="alignContent">
+                            <div class="labelInput"><label>Nom</label></div>
+                            <input type="text" class="input" name="nom" required>
+                        </div>
+                    </div>
+
+                    <div class="containerLabelInput">
+                        <div class="alignContent">
+                            <div class="labelInput"><label>Email</label></div>
+                            <input type="email" class="input" name="email" required>
+                        </div>
+                        <div class="alignContent">
+                            <div class="labelInput"><label>Numéro de téléphone</label></div>
+                            <input type="text" class="input" name="numero" required>
+                        </div>
+                    </div>
+
+                    <div class="containerLabelInput">
+                        <div class="alignContent">
+                            <div class="labelInput"><label>Adresse</label></div>
+                            <input type="text" class="input" name="adresse" required>
+                        </div>
+                        <div class="alignContent">
+                            <div class="labelInput"><label>Complément d'adresse</label></div>
+                            <input type="text" class="input" name="complement_adresse">
+                        </div>
+                    </div>
+
+                    <div class="containerLabelInput">
+                        <div class="alignContent">
+                            <div class="labelInput"><label>Mot de passe</label></div>
+                            <input type="password" class="input" name="mdp" required>
+                        </div>
+                        <div class="alignContent">
+                            <div class="labelInput"><label>Confirmer le mot de passe</label></div>
+                            <input type="password" class="input" name="confirmation_mdp" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btnValider">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+{% endblock %}

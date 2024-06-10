@@ -1,0 +1,233 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Modéle{% endblock %}
+
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('admin/css/modele.css') }}" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script src="{{ asset('admin/js/modele.js') }}" defer></script>
+{% endblock %}
+
+
+{% block body %}
+	<main class="main">
+		<section class="section_hero">
+			<div class="title-container">
+				<h1 class="title">Modéles</h1>
+				<div class="container-cta">
+					<button class="btn-add add-marque">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 48 48">
+							<defs>
+								<mask id="ipSAdd0">
+									<g fill="none" stroke-linejoin="round" stroke-width="4">
+										<rect width="36" height="36" x="6" y="6" fill="#fff" stroke="#fff" rx="3"/>
+										<path stroke="#000" stroke-linecap="round" d="M24 16v16m-8-8h16"/>
+									</g>
+								</mask>
+							</defs>
+							<path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSAdd0)"/>
+						</svg>
+					</button>
+				</div>
+			</div>
+
+
+			<form class="add-modele-form form-hidden">
+				<button class="btn-cancel">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+						<path fill="currentColor" d="M16.066 8.995a.75.75 0 1 0-1.06-1.061L12 10.939L8.995 7.934a.75.75 0 1 0-1.06 1.06L10.938 12l-3.005 3.005a.75.75 0 0 0 1.06 1.06L12 13.06l3.005 3.006a.75.75 0 0 0 1.06-1.06L13.062 12z"/>
+					</svg>
+				</button>
+				<div class="form_content">
+					<div class="form_container--img">
+						<div class="form_img--circle preview-logo">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+								<g fill="none">
+									<path fill="currentColor" fill-rule="evenodd" d="M3.172 3.172C2 4.343 2 6.229 2 10v4c0 3.771 0 5.657 1.172 6.828C4.343 22 6.229 22 10 22h4c3.771 0 5.657 0 6.828-1.172C22 19.657 22 17.771 22 14v-4c0-2.84 0-4.61-.5-5.811V17a3.62 3.62 0 0 1-2.56-1.06l-.752-.752c-.722-.722-1.082-1.082-1.491-1.234a2 2 0 0 0-1.394 0c-.409.152-.77.512-1.49 1.234l-.114.113c-.585.585-.878.878-1.189.932a1 1 0 0 1-.699-.134c-.268-.166-.431-.547-.758-1.308L11 14.667c-.75-1.75-1.124-2.624-1.778-2.952a2 2 0 0 0-1.065-.205c-.729.062-1.401.735-2.747 2.08L3.5 15.5V2.887a2.85 2.85 0 0 0-.328.285" clip-rule="evenodd"/>
+									<path stroke="currentColor" stroke-width="2" d="M3 10c0-1.914.002-3.249.138-4.256c.131-.978.372-1.496.74-1.865c.37-.37.888-.61 1.866-.741C6.751 3.002 8.086 3 10 3h4c1.914 0 3.249.002 4.256.138c.978.131 1.496.372 1.865.74c.37.37.61.888.742 1.866C20.998 6.751 21 8.086 21 10v4c0 1.914-.002 3.249-.137 4.256c-.132.978-.373 1.496-.742 1.865c-.369.37-.887.61-1.865.742c-1.007.135-2.342.137-4.256.137h-4c-1.914 0-3.249-.002-4.256-.137c-.978-.132-1.496-.373-1.865-.742c-.37-.369-.61-.887-.741-1.865C3.002 17.249 3 15.914 3 14z"/>
+									<circle cx="15" cy="9" r="2" fill="currentColor"/>
+								</g>
+							</svg>
+						</div>
+						<label class="label-logo" for="input-img">Ajouter une photo</label>
+						<input type="file" name="input-img" id="input-img"/>
+					</div>
+					<div class="container-input">
+						<label class="label" for="name">Libellé modèle</label>
+						<input class="input input-name" type="text" name="input-name" id="input-name">
+					</div>
+
+					<div class="select-form-container">
+						<div class="container-input select-container-input">
+							<label class="label" for="version-modele">Version modèle</label>
+							<select class="input" name="version-modele" id="version-modele">
+								<option value="example1">Exemple 1</option>
+								<option value="example2">Exemple 2</option>
+								<option value="example3">Exemple 3</option>
+							</select>
+						</div>
+
+						<div class="container-input select-container-input">
+							<label class="label" for="marque">Marque</label>
+							<select class="input" name="marque" id="marque">
+								<option value="Apple">Apple</option>
+								<option value="Samsung">Samsung</option>
+							</select>
+						</div>
+					</div>
+
+					<button class="btn btn-valid" type="submit">Valider</button>
+				</div>
+			</form>
+
+
+			<div class="marque-container">
+				<div class="marque-card" data-marque="apple">
+					<div class="marque-card-nb-model">30 modèles</div>
+					<img src="{{ asset('admin/img/apple-logo.svg') }}" alt="logo apple">
+				</div>
+				<div class="marque-card" data-marque="samsung">
+					<div class="marque-card-nb-model">10 modèles</div>
+					<img src="{{ asset('admin/img/samsung-logo.svg') }}" alt="logo samsung">
+				</div>
+			</div>
+
+
+			<div class="modele-view-container">
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+				<div class="modele-card">
+					<div class="bg-card-modele"></div>
+					<img src="{{ asset('admin/img/iphone-11-pro.png') }}" alt="iPhone 11 Pro">
+					<p class="modele-name">iPhone 11 Pro</p>
+				</div>
+			</div>
+
+			<div class="edit-modele-form-container hide-pop-up">
+				<div class="edit-form-bg"></div>
+				<div class="edit-modele-form">
+					<button class="btn-cancel">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+							<path fill="currentColor" d="M16.066 8.995a.75.75 0 1 0-1.06-1.061L12 10.939L8.995 7.934a.75.75 0 1 0-1.06 1.06L10.938 12l-3.005 3.005a.75.75 0 0 0 1.06 1.06L12 13.06l3.005 3.006a.75.75 0 0 0 1.06-1.06L13.062 12z"/>
+						</svg>
+					</button>
+					<div class="form_content">
+						<div class="form_container--img">
+							<div class="form_img--circle preview-logo">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+									<g fill="none">
+										<path fill="currentColor" fill-rule="evenodd" d="M3.172 3.172C2 4.343 2 6.229 2 10v4c0 3.771 0 5.657 1.172 6.828C4.343 22 6.229 22 10 22h4c3.771 0 5.657 0 6.828-1.172C22 19.657 22 17.771 22 14v-4c0-2.84 0-4.61-.5-5.811V17a3.62 3.62 0 0 1-2.56-1.06l-.752-.752c-.722-.722-1.082-1.082-1.491-1.234a2 2 0 0 0-1.394 0c-.409.152-.77.512-1.49 1.234l-.114.113c-.585.585-.878.878-1.189.932a1 1 0 0 1-.699-.134c-.268-.166-.431-.547-.758-1.308L11 14.667c-.75-1.75-1.124-2.624-1.778-2.952a2 2 0 0 0-1.065-.205c-.729.062-1.401.735-2.747 2.08L3.5 15.5V2.887a2.85 2.85 0 0 0-.328.285" clip-rule="evenodd"/>
+										<path stroke="currentColor" stroke-width="2" d="M3 10c0-1.914.002-3.249.138-4.256c.131-.978.372-1.496.74-1.865c.37-.37.888-.61 1.866-.741C6.751 3.002 8.086 3 10 3h4c1.914 0 3.249.002 4.256.138c.978.131 1.496.372 1.865.74c.37.37.61.888.742 1.866C20.998 6.751 21 8.086 21 10v4c0 1.914-.002 3.249-.137 4.256c-.132.978-.373 1.496-.742 1.865c-.369.37-.887.61-1.865.742c-1.007.135-2.342.137-4.256.137h-4c-1.914 0-3.249-.002-4.256-.137c-.978-.132-1.496-.373-1.865-.742c-.37-.369-.61-.887-.741-1.865C3.002 17.249 3 15.914 3 14z"/>
+										<circle cx="15" cy="9" r="2" fill="currentColor"/>
+									</g>
+								</svg>
+							</div>
+							<label class="label-logo" for="input-img">Changer de photo</label>
+							<input type="file" name="input-img" id="input-img"/>
+						</div>
+						<div class="container-input">
+							<label class="label" for="name">Libellé modèle</label>
+							<input class="input input-name" type="text" name="input-name" id="input-name">
+						</div>
+
+						<div class="select-form-container">
+							<div class="container-input select-container-input">
+								<label class="label" for="version-modele">Version modèle</label>
+								<select class="input" name="version-modele" id="version-modele">
+									<option value="example1">Exemple 1</option>
+									<option value="example2">Exemple 2</option>
+									<option value="example3">Exemple 3</option>
+								</select>
+							</div>
+
+							<div class="container-input select-container-input">
+								<label class="label" for="marque">Marque</label>
+								<select class="input" name="marque" id="marque">
+									<option value="Apple">Apple</option>
+									<option value="Samsung">Samsung</option>
+								</select>
+							</div>
+						</div>
+						<button class="btn btn-valid" type="submit">Valider</button>
+					</div>
+
+				</div>
+			</div>
+
+		</section>
+	</main>
+{% endblock %}

@@ -1,0 +1,184 @@
+main {
+    position: relative;
+}
+
+
+/* FORM */
+.add-modele-form {
+    max-width: 40vw;
+    transition: all ease-in-out 200ms;
+}
+
+.select-form-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.select-container-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.select-container-input label {
+    align-self: flex-start;
+}
+
+
+
+
+
+/* MARQUE */
+.marque-container {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.marque-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #dcdde2;
+    border-radius: 16px;
+    padding: 35px 35px;
+    cursor: pointer;
+    position: relative;
+    border: .5px solid transparent;
+    transition: .2s linear;
+}
+
+.marque-card:hover {
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border: .5px solid rgba(0, 0, 0, 0.1);
+}
+
+.marque-card-nb-model {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .05rem;
+}
+
+
+
+/* Modeles cards */
+.modele-view-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+    margin-top: 50px;
+}
+
+
+.modele-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+    border: 1px solid #00000011;
+    cursor: pointer;
+    transition: all ease-in-out 250ms;
+}
+.modele-card:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    scale: 0.98;
+    background: #fff;
+}
+
+.bg-card-modele {
+    position: absolute;
+    z-index: -1;
+    background: #DCDDE2;
+    width: 100%;
+    height: 60%;
+    top: 0;
+}
+
+
+
+.modele-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.modele-name {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+
+/* EDIT FORM */
+.edit-modele-form-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in-out 200ms;
+}
+.edit-form-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.107);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+.edit-modele-form {
+    position: relative;
+    padding: 30px;
+    z-index: 2;
+    margin: auto;
+    border-radius: 30px;
+    max-width: 50vw;
+    width: 50vw;
+    background: #fff;
+    transition: all ease-in-out 200ms;
+}
+
+.hide-pop-up {
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+@media screen and (max-width: 768px) {
+    .select-form-container {
+        grid-template-columns: 1fr;
+    }
+
+    .modele-view-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+
+    .edit-modele-form {
+        max-width: 80vw;
+        width: 80vw;
+    }
+}
+
+
+@media screen and (max-width: 350px){
+    .btn-valid {
+        width: auto;
+        padding: 18px 30px;
+    }
+}

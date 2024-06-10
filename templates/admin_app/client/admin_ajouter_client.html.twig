@@ -1,0 +1,62 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('admin/css/client.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+
+  <main class="main">
+        <section class="section_hero">
+            <h1 class="titleClient">Client</h1>
+            <div class="containerAddClient">
+
+                <form class="formContainer">
+                    <div class="inputContainer">
+
+                        <div class="containerLabelInput">
+                            <div class="alignContent">
+                                <div class="labelInput"><label>Prénom</label></div>
+                                <input type="text" class="input" required>
+                            </div>
+                            <div class="alignContent">
+                                <div class="labelInput"><label>Nom</label></div>
+                                <input type="text" class="input" required>
+                            </div>
+                        </div>
+
+                        <div class="containerLabelInput">
+                            <div class="alignContent">
+                                <div class="labelInput"><label>Email</label></div>
+                                <input type="email" class="input" required>
+                            </div>
+                            <div class="alignContent">
+                                <div class="labelInput"><label>Numéro de téléphone</label></div>
+                                <input type="number" class="input" required>
+                            </div>
+                        </div>
+
+                        <div class="containerLabelInput">
+                            <div class="alignContent">
+                                <div class="labelInput"><label>Adresse</label></div>
+                                <input type="text" class="input" required>
+                            </div>
+                            <div class="alignContent">
+
+                                <button class="btnValider">Ajouter</button>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+{% endblock %}

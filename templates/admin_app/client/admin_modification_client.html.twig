@@ -1,0 +1,54 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('admin/css/client.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+
+<main class="main">
+    <section class="section_hero">
+        <h1 class="titleClient">Client</h1>
+        <div class="containerAddClient">
+
+           <form class="formContainer" action="{{ path('modification_client', {'id': utilisateur.idUtilisateur}) }}" method="POST">
+    <div class="inputContainer">
+        <div class="containerLabelInput">
+            <div class="alignContent">
+                <div class="labelInput"><label>Prénom</label></div>
+                <input type="text" class="input" name="prenom" value="{{ utilisateur.prenom }}" required>
+            </div>
+            <div class="alignContent">
+                <div class="labelInput"><label>Nom</label></div>
+                <input type="text" class="input" name="nom" value="{{ utilisateur.nom }}" required>
+            </div>
+        </div>
+        <div class="containerLabelInput">
+            <div class="alignContent">
+                <div class="labelInput"><label>Email</label></div>
+                <input type="email" class="input" name="email" value="{{ utilisateur.email }}" required>
+            </div>
+            <div class="alignContent">
+                <div class="labelInput"><label>Numéro de téléphone</label></div>
+                <input type="text" class="input" name="numero" value="{{ utilisateur.numero }}" required>
+            </div>
+        </div>
+        <div class="containerLabelInput">
+            <div class="alignContent">
+                <div class="labelInput"><label>Adresse</label></div>
+                <input type="text" class="input" name="adresse" value="{{ utilisateur.adresse }}" required>
+            </div>
+            <div class="alignContent">
+                <button type="submit" class="btnValider">Modifier</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+        </div>
+    </section>
+</main>
+
+{% endblock %}

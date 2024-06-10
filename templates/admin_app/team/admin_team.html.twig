@@ -1,0 +1,156 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('admin/css/team.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('admin/css/mon-compte.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+
+ <main class="main">
+        <section class="section_hero">
+            <div class="containerTeamAdd">
+                <div class="title-container">
+                    <h1 class="title">Team</h1>
+                    <div class="containerBtn">
+                        <button class="btn-add" onclick="window.location.href = '{{ path('ajouter_team') }}';">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+                                <defs>
+                                    <mask id="ipSAdd0">
+                                        <g fill="none" stroke-linejoin="round" stroke-width="4">
+                                            <rect width="36" height="36" x="6" y="6" fill="#fff" stroke="#fff" rx="3" />
+                                            <path stroke="#000" stroke-linecap="round" d="M24 16v16m-8-8h16" />
+                                        </g>
+                                    </mask>
+                                </defs>
+                                <path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSAdd0)" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+               
+                <div class="tableContainer">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NOM</th>
+                                <th>EMAIL</th>
+                                <th>NUMERO</th>
+                                <th>ADRESSE</th>
+                                <th>CPLT ADRESSE</th>
+                            </tr>
+                        </thead>
+                       <tbody>
+                     {% for utilisateur in utilisateurs %}
+                    <tr>
+                        <td data-label="Identifiant">{{ utilisateur.idUtilisateur }}</td>
+                        <td data-label="Nom">{{ utilisateur.nom }}</td>
+                        <td data-label="Email">{{ utilisateur.email }}</td>
+                        <td data-label="Numéro de téléphone">{{ utilisateur.numero }}</td>
+                        <td data-label="Adresse">{{ utilisateur.adresse }}</td>
+                        <td data-label="CpltAdresse">{{ utilisateur.complementAdresse }}</td>
+                        <td data-label="Modification">
+                <a href="{{ path('modification_team', {'id': utilisateur.idUtilisateur}) }}">
+                    <img src="{{ asset('admin/img/mdi_show copy.png') }}" alt="Logo" style="opacity: 2;">
+                </a>    
+            </td>
+            <td data-label="Suppression">
+                <a href="{{ path('supprimer_team', {'id': utilisateur.idUtilisateur}) }}">
+                    <img src="{{ asset('admin/img/bin.png') }}" alt="Logo" style="opacity: 2;">
+                </a>    
+            </td>
+                    </tr>
+                         {% endfor %}
+                         </tbody>
+                    </table>
+                </div>
+                <div class="info-container">
+                    <div class="infoLine-container">
+                        page 1-1 lignes 6
+                    </div>
+                    <div class="container-navigation">
+                        <button class="btn-navigation previous">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m14 7l-5 5m0 0l5 5" />
+                            </svg>
+                        </button>
+                        <button class="btn-navigation next">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m10 17l5-5m0 0l-5-5" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="section_hero mon-compte">
+            <div class="title-container">
+                <h1 class="title">Doe John</h1>
+            </div>
+
+            <div class="edit-modele-form-container">
+                <div class="edit-modele-form">
+                    <div class="form_content">
+                        <div class="select-form-container">
+                            <div class="container-input">
+                                <label class="label" for="name">Nom</label>
+                                <input class="input input-name" type="text" name="input-name" id="input-name">
+                            </div>
+                            <div class="container-input">
+                                <label class="label" for="name">Prénom</label>
+                                <input class="input input-name" type="text" name="input-name" id="input-name">
+                            </div>
+                        </div>
+
+                        <div class="select-form-container">
+                            <div class="container-input">
+                                <label class="label" for="name">Email</label>
+                                <input class="input input-name" type="text" name="input-name" id="input-name">
+                            </div>
+                            <div class="container-input">
+                                <label class="label" for="name">Numéro de téléphone</label>
+                                <input class="input input-name" type="text" name="input-name" id="input-name">
+                            </div>
+                        </div>
+    
+                        
+                        <div class="select-form-container">
+                            <div class="container-input">
+                                <label class="label" for="name">Poste</label>
+                                <input class="input input-name" type="text" name="input-name" id="input-name">
+                            </div>
+                            
+                            <div class="container-input select-container-input">
+                                <label class="label" for="marque">Role</label>
+                                <select class="input" name="marque" id="marque">
+                                    <option value="Apple">Technicien Smartphone</option>
+                                    <option value="Samsung">Technicien Ordinateur</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="select-form-container">
+                            <div class="container-input">
+                                <label class="label" for="name">Mot de passe</label>
+                                <input class="input input-name" type="password" name="input-name" id="input-name">
+                            </div>
+                            <div class="container-input">
+                                <label class="label" for="name">Confirmer Mot de passe</label>
+                                <input class="input input-name" type="password" name="input-name" id="input-name">
+                            </div>
+                        </div>
+
+                        <button class="btn btn-valid" type="submit">Valider</button>
+                    </div>
+    
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}

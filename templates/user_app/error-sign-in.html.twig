@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+	{{ parent() }}
+		<link rel="stylesheet" href="{{ asset('user/devis/devis.css') }}" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	{% if not app.user %}
+		<script src="{{ asset('user/success-sign-in/success-sign-in.js') }}" defer></script>
+	{% endif %}
+{% endblock %}
+
+{% block body %}
+	<main>
+		{% if not app.user %}
+			<div class="container clearfix center devis-form-container">
+				<form method="post" id="log-in-form" action="{{path('app_auth')}}">
+					<p class="col-md-12 form-message alert alert-danger">Erreur lors de la connexion. Veuillez réessayer.</p>
+					<div class="row g-3 devis-form log-in-form margin-top-form">
+						<div class="col-md-6 start-flex bottom-space">
+							<label for="inputEmail4" class="form-label">Email</label>
+							<input required type="email" name="_username" class="form-control" id="inputEmail_log_in">
+						</div>
+						<div class="col-md-6 start-flex bottom-space">
+							<label for="inputPassword4" class="form-label">Password</label>
+							<input required type="password" name="_password" class="form-control" id="inputPassword_log_in" pattern="(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{8,}" title="Le mot de passe doit contenir au moins 8 caractères, incluant au moins un chiffre et un caractère spécial.">
+						</div>
+
+						<div class="col-12 buttons-container">
+							<input type="hidden" name="_target_path" value="{{path('app_auth')}}"/>
+							<input type="hidden" name="_csrf_token" value="{{csrf_token('authenticate')}}"/>
+							<button disabled type="submit" class="btn btn-primary" id="confirmation-log-in-btn">Connexion</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		{% else %}
+			<div class="center" role="alert">
+				<p class="col-md-12 form-message infos-appareil already-connected">Vous êtes déjà connecté !</p>
+				<div class="list-inline">
+					<a href="{{ url('app_homepage') }}#product-categories" class="btn btn-lg mr-3 btn-outline-light already-connected-btn rounded-pill">
+						Homepage
+					</a>
+				</div>
+			</div>
+		{% endif %}
+	</main>
+{% endblock %}
