@@ -3,7 +3,7 @@
 Application symfony pour la gestion des réparations de téléphone, tablet, pc, etc.
 
 ## stack
-- php smyfony
+- PHP Symfony
 - mysql
 - Doctrine ORM
 - Twig template
