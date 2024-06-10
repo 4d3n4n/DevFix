@@ -36,9 +36,9 @@ une capture d'écran de la gestion des erreurs et de la sécurité pendant l'ins
 
 ## 📘 Rapport et présentation
 
-<a href="Rapport" target="_blank">Rapport</a>
+<a href="[Rapport](https://github.com/user-attachments/files/15779872/rapport_de_stage_Adenan_KHACHNANE.pdf)" target="_blank">Rapport</a>
 
-<a href="Présentation" target="_blank">Présentation</a>
+<a href="[Présentation](https://github.com/user-attachments/files/15779871/DevFix_presetation.pdf)" target="_blank">Présentation</a>
 
 <br>
 
